@@ -1,11 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Lobby/scripts/GuiLobbyControllers.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player.cs">
     <Files>
-      <File FileName="../rpg/Assets/CharController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Lobby/scripts/UI/OfflineControlHooks.cs" Line="16" Column="22" />
-      <File FileName="Assets/Lobby/scripts/GuiLobbyControllers.cs" Line="159" Column="54" />
-      <File FileName="Assets/Lobby/scripts/GuiLobbyManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Player.cs" Line="113" Column="59" />
+      <File FileName="Assets/Scripts/CrateMove.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/SceneControl.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

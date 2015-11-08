@@ -8,6 +8,8 @@ public class Player : NetworkBehaviour {
 	public int moveX = 0;
 	public int moveY = 0;
 	public float moveSpeed = 0.2f;
+	public Vector3 newPos;
+	public Vector3 syncPos;
 
 	[SyncVar]
 	public Color myColor;
@@ -15,6 +17,7 @@ public class Player : NetworkBehaviour {
 	void Start()
 	{
  		DontDestroyOnLoad(gameObject);
+		newPos = new Vector3(0f, 0f, 0f);
 	}
 
 	public GameObject cratePrefab;
@@ -48,10 +51,21 @@ public class Player : NetworkBehaviour {
 		this.crate = crate;
 	}
 
+//	[Command]
+//	void CmdProvidePosToServer(Vector3 pos){
+//		syncPos = pos;
+//	}
+//
+//	[ClientCallback]
+//	void transmitPos(){
+//		CmdProvidePosToServer(transform.position);
+//	}
+
 	void Update () 
 	{
 		if (!isLocalPlayer) {
 			return;
+//			transform.position = Vector3.Lerp (transform.position, p, 0.1f);
 		}
 		
 		// input handling for local player only
@@ -103,6 +117,10 @@ public class Player : NetworkBehaviour {
 	{
 		moveX = x;
 		moveY = y;
+
+		newPos = new Vector3(transform.position.x + x, transform.position.y + y, transform.position.z);
+//		transform.position = Vector3.Lerp (transform.position, newPos, 0.1f);
+		print ("CmdMove");
 		transform.Translate(moveX * moveSpeed, moveY * moveSpeed, 0);
 		base.SetDirtyBit(1);
 	}
@@ -110,6 +128,8 @@ public class Player : NetworkBehaviour {
 	[ServerCallback]
 	public void FixedUpdate()
 	{
+//		transmitPos();
+//		transform.position = Vector3.Lerp (transform.position, newPos, 0.1f);
 		transform.Translate(moveX * moveSpeed, moveY * moveSpeed, 0);
 	}
 }
